@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row">
+          <h3 class="text-center mb-5 bg-danger">Student Registration Form</h3>
+          <div class="col-sm-6 offset-3">
+            <form action="" id="form">
+            <label class="text-danger">First Name: </label>
+            <input
+              type="text"
+              class="form-control my-2"
+              placeholder="Enter Your First Name"
+              id="firstName"
+            
+            />
+  
+            <label class="text-danger">Last Name: </label>
+            <input
+              type="text"
+              class="form-control my-2"
+              placeholder="Enter Your last Name"
+              id="lastName"
+              
+            />
+            <label class="text-danger">Email Address: </label>
+            <input
+              type="email"
+              name="email address"
+              id="pemail"
+              class="form-control my-2"
+              placeholder="Enter Your Email-Id"
+
+            />
+  
+            <label class="text-danger">Password: </label>
+            <input
+              type="password"
+              name="passworda"
+              id="pword"
+              class="form-control my-2"
+              placeholder="Enter Your Password"
+              
+            />
+  
+  
+            <label class="text-danger">Mobile Number: </label>
+            <input
+              type="mobile"
+              name="phoneNumber"
+              id="pnum"
+              class="form-control my-2"
+              placeholder="Enter Your mobile number"
+              
+            />
+
+            <label class="text-danger">Class STD: </label>
+            <select id="myselect" onchange="mySelection()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option></select>
+            
+            <button
+              type="button"   onclick="test()"
+              class="my-5 bg-info text-white w-50 offset-2 border-warning">
+              Register
+            </button>
+  
+            <p id="demo1" class="my-2"></p>
+            <p id="demo2" class="my-2"></p>
+            <p id="demo3" class="my-2"></p>
+            <p id="demo4" class="my-2"></p>
+            <p id="demo4" class="my-2"></p>
+            <p id="demoselect" class="my-2"></p>
+          
+          </div>
+        </form>
+        </div>
+      </div>
+  <script>
+    let data = [];
+    function mySelection(){
+        var x =document.getElementById("myselect").value;
+        document.getElementById("demoselect").innerHTML = "Selected class STD is:- " + x;
+    }
+
+    function test() {
+        const result = document.getElementById("firstName").value;
+        // const fName = (document.getElementById("demo1").innerHTML = result);
+        // console.log(result);
+        const results = document.getElementById("lastName").value;
+        // const lName = (document.getElementById("demo2").innerHTML = results);
+        console.log(results);
+        const resultss = document.getElementById("pemail").value;
+        // const eMail = (document.getElementById("demo3").innerHTML = resultss);
+        console.log(resultss);
+        const resultsss = document.getElementById("pword").value;
+        // const passwordd = (document.getElementById("demo4").innerHTML = resultsss);
+        console.log(resultsss);
+        const resultssss = document.getElementById("pnum").value;
+        // const mobilee = (document.getElementById("demo5").innerHTML = resultssss);
+        console.log(resultssss);
+
+        data.push({
+          Name: result,
+          Lname: results,
+          classid: resultss,
+          mobileno: resultsss,
+          passwOrdd:resultssss,
+        });
+        console.log(data);
+        displayData()
+      };
+        
+        function displayData() {
+        let str = "";
+        for (let i = 0; i < data.length; i++) {
+          console.log(i);
+          str += `
+            <div>
+              <p>${i}</p>
+              <p>${data[i].Name}</p>
+              <p>${data[i].Lname}</p>
+              <p>${data[i].classid}</p>
+              <p>${data[i].mobileno}</p>
+              <p>${data[i].passwOrdd}</p>
+              document.querySelector("#demoselect").innerHTML = str;
+            </div>`;
+        }
+        // document.querySelector("#demoselect").innerHTML = str;
+        
+       
+    } 
+        
+
+  </script>
+</body>
+</html>
